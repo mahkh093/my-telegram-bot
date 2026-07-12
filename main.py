@@ -22,7 +22,7 @@ async def ask_ai(update: Update, context: ContextTypes.DEFAULT_TYPE):
     try:
         # نام مدل دقیقاً مطابق با آنچه در OpenRouter است
         completion = client.chat.completions.create(
-          model="nvidia/nemotron-3-ultra-550b:free",
+          model="nvidia/nemotron-3-ultra-550b",
           messages=[{"role": "user", "content": user_text}]
         )
         answer = completion.choices[0].message.content
