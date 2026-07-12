@@ -3,6 +3,14 @@ from openai import OpenAI
 from telegram import Update
 from telegram.ext import ApplicationBuilder, ContextTypes, CommandHandler, MessageHandler, filters
 
+api_key = os.getenv("OPENROUTER_API_KEY")
+print(f"DEBUG: API Key length is {len(api_key) if api_key else 'NONE'}") # این خط رو اضافه کن
+
+client = OpenAI(
+  base_url="https://openrouter.ai/api/v1",
+  api_key=api_key,
+)
+
 # تنظیم کلاینت OpenRouter
 client = OpenAI(
   base_url="https://openrouter.ai/api/v1",
