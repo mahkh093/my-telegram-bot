@@ -29,7 +29,7 @@ async def ask_ai(update: Update, context: ContextTypes.DEFAULT_TYPE):
     status_msg = await update.message.reply_text("درحال پردازش...")
     try:
         completion = client.chat.completions.create(
-          model="google/gemini-pro-1.5",
+          model="deepseek/deepseek-v4-pro",
           messages=[{"role": "user", "content": user_text}]
         )
         await context.bot.edit_message_text(chat_id=update.effective_chat.id, message_id=status_msg.message_id, text=completion.choices[0].message.content)
