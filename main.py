@@ -7,7 +7,7 @@ from telegram.ext import ApplicationBuilder, CommandHandler, MessageHandler, fil
 client = genai.Client(api_key=os.getenv("GOOGLE_API_KEY"))
 
 async def start(update: Update, context):
-    await update.message.reply_text("سلام! بات من با مدل Gemini 2.0 (Google GenAI) آماده تحلیل است.")
+    await update.message.reply_text("سلام! بات من با مدل Gemini 1.5 (Google GenAI) آماده تحلیل است.")
 
 async def ask_ai(update: Update, context):
     user_text = update.message.text
@@ -16,7 +16,7 @@ async def ask_ai(update: Update, context):
     try:
         # فراخوانی مدل جدید (gemini-2.0-flash برای سرعت و دقت بالا)
         response = client.models.generate_content(
-            model="gemini-2.0-flash",
+            model="gemini-1.5-flash",
             contents=user_text,
         )
         await context.bot.edit_message_text(
